@@ -2,8 +2,8 @@
 // Created by Alon on 2021-02-25.
 //
 
-#ifndef BASS_HASHCODE_CITYPLAN_H
-#define BASS_HASHCODE_CITYPLAN_H
+#ifndef BASS_HASHCODE_STREETGRAPH_H
+#define BASS_HASHCODE_STREETGRAPH_H
 
 #include <iostream>
 #include <vector>
@@ -14,6 +14,7 @@ using namespace std;
 typedef pair<int, int> Pair;
 
 // A class to represent a graph object
+
 class StreetGraph{
 public:
     // a vector of vectors of Pairs to represent an adjacency list
@@ -36,7 +37,7 @@ public:
             adjList[src].push_back(make_pair(dest, weight));
         }
     }
-};
+}
 
 // Function to print adjacency list representation of a graph
 void printStreetGraph(StreetGraph const &graph, int N)
@@ -77,4 +78,4 @@ int main()
 }
 
 
-#endif //BASS_HASHCODE_CITYPLAN_H
+#endif //BASS_HASHCODE_STREETGRAPH_H
