@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 
-#include <Street.h>
-#include <Car.h>
+#include "Street.h"
+#include "Car.h"
 
 using namespace std;
 
@@ -32,5 +32,9 @@ vector<Car> readCarFile(string path){
 
 
 int main() {
-    std::cout << "hello world" << std::endl;
+    string path = "out\\dataset_parser\\a\\streets_out.txt";
+    vector<Street> streets = readStreetsFile(path);
+    for (int i =0 ; i<streets.size(); i++){
+        cout << streets[i] << endl;
+    }
 }

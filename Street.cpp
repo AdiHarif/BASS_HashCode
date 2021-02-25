@@ -2,8 +2,9 @@
 
 #include "Street.h"
 
-using std::ostream;
+#include <iostream>
+
 
 ostream& operator<<(ostream& stream, Street Street){
-    return stream <<"Street "<< Street.id <<": " << Street.src << " " << Street.dest << " " << Street.weight << std::endl;
+    return stream <<"Street "<< Street.id <<": " << Street.src << " " << Street.dest << " " << Street.weight;
 }

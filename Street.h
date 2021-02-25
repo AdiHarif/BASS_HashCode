@@ -6,6 +6,7 @@
 
 using std::ws;
 using std::istream;
+using std::ostream;
 class Street {
 public:
     int src, dest, weight, id;
