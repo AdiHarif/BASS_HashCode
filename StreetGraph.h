@@ -8,13 +8,6 @@
 #include "utils.h"
 using namespace std;
 
-typedef pair<int, int> TrafficLight; //first int is street id, second int is duration
-
-struct Intersection{
-    vector<TrafficLight> trafficLights;
-};
-
-
 typedef pair<int, int> Edge; //first int is dest intersection, second int is weight
 
 // A class to represent a graph object
@@ -27,25 +20,27 @@ public:
     vector<Street> streets;
 
     // StreetGraph Constructor
-    StreetGraph(vector<Street> const &streets, int N) : streets(streets){
+    StreetGraph(vector<Street> &streets, int N) : streets(streets){
 
         // resize the vector to hold `N` elements
         adjList.resize(N);
         intersections.resize(N);
 
         // add edges to the directed graph
-        for (auto &street: streets)
+        for (int i=0; i<streets.size(); i++)
         {
-            int src = street.src;
-            int dest = street.dest;
-            int weight = street.weight;
+            Street* street = &(streets[i]);
+            int src = street->src;
+            int dest = street->dest;
+            int weight = street->weight;
 
             // insert at the end
             adjList[src].push_back(make_pair(dest, weight));
-            intersections[dest].trafficLights.push_back(make_pair(street.id, 0)); //initializing all traffic lights with green duration of 0
+            intersections[dest].trafficLights.push_back(TrafficLight(street->id, 0, false)); //initializing all traffic lights with green duration of 0
+            street->traffic_light = &(intersections[dest].trafficLights.back());
         }
     }
-}
+};
 
 // Function to print adjacency list representation of a graph
 void printStreetGraph(StreetGraph const &graph, int N)

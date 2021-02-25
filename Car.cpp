@@ -1,9 +1,9 @@
 #include "Car.h"
 #include <iterator> 
 
-Car::Car(list<int>* streets, int remaining_steps_in_street){
+Car::Car(list<int>* streets){
 	streets=streets;
-	remaining_steps_in_street=remaining_steps_in_street;
+	just_passed=false;
 }
 
 void Car::step(){
@@ -13,8 +13,12 @@ void Car::step(){
 int Car::getNextStreet(){
 	list<int>::iterator it = streets->begin();
 	it++;
+	if(it==streets->end()){
+		return -1;
+	}
 	return *it;
 }
+
 void Car::newStreet(int value){
 	remaining_steps_in_street = value;
 	streets->pop_front();

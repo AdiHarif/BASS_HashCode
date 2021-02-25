@@ -5,11 +5,12 @@
 using std::list;
 
 class Car {
+public:
     list<int>* streets;//current street is the head of the list
     int remaining_steps_in_street;
+    bool just_passed;
 
-public:
-    Car(list<int>* streets, int remaining_steps_in_street);
+    Car(list<int>* streets);
     void newStreet(int value);
     void step();
     int getNextStreet();
