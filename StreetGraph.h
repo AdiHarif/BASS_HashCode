@@ -1,6 +1,3 @@
-//
-// Created by Alon on 2021-02-25.
-//
 
 #ifndef BASS_HASHCODE_STREETGRAPH_H
 #define BASS_HASHCODE_STREETGRAPH_H
@@ -79,3 +76,4 @@ int main()
 
 
 #endif //BASS_HASHCODE_STREETGRAPH_H
+

@@ -1,6 +1,3 @@
-//
-// Created by Alon on 2021-02-25.
-//
 
 #ifndef BASS_HASHCODE_STREET_H
 #define BASS_HASHCODE_STREET_H
@@ -17,3 +14,4 @@ public:
 
 
 #endif //BASS_HASHCODE_STREET_H
+
