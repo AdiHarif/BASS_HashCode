@@ -8,20 +8,30 @@
 #include "utils.h"
 using namespace std;
 
-typedef pair<int, int> Pair;
+typedef pair<int, int> TrafficLight; //first int is street id, second int is duration
+
+struct Intersection{
+    vector<TrafficLight> trafficLights;
+};
+
+
+typedef pair<int, int> Edge; //first int is dest intersection, second int is weight
 
 // A class to represent a graph object
 
 class StreetGraph{
 public:
     // a vector of vectors of Pairs to represent an adjacency list
-    vector<vector<Pair>> adjList;
+    vector<vector<Edge>> adjList;
+    vector<Intersection> intersections;
+    vector<Street> streets;
 
     // StreetGraph Constructor
-    StreetGraph(vector<Street> const &streets, int N)
-    {
-        // resize the vector to hold `N` elements of type vector<Pair>
+    StreetGraph(vector<Street> const &streets, int N) : streets(streets){
+
+        // resize the vector to hold `N` elements
         adjList.resize(N);
+        intersections.resize(N);
 
         // add edges to the directed graph
         for (auto &street: streets)
@@ -32,6 +42,7 @@ public:
 
             // insert at the end
             adjList[src].push_back(make_pair(dest, weight));
+            intersections[dest].trafficLights.push_back(make_pair(street.id, 0)); //initializing all traffic lights with green duration of 0
         }
     }
 }
