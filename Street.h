@@ -1,22 +1,20 @@
 
-#ifndef BASS_HASHCODE_STREET_H
-#define BASS_HASHCODE_STREET_H
+#pragma once
 
-#include <queue>
+#include <sstream>
+#include <iostream>
 
-using namespace std;
-
-
+using std::ws;
+using std::istream;
 class Street {
 public:
     int src, dest, weight, id;
-    //TODO add car queue
 
-    Street(int src, int dest, int weight, int id): src(src), dest(dest), weight(weight), id(id){
-
+    Street(istream& iss){
+        iss >> src >> ws >> dest >> ws >> weight >> ws >> id;
     }
+
 };
 
 
-#endif //BASS_HASHCODE_STREET_H
-
+ostream& operator<<(ostream& stream, Street Street);
