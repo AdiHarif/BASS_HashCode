@@ -48,7 +48,7 @@ void printStreetGraph(StreetGraph const &graph, int N)
     for (int i = 0; i < N; i++)
     {
         // Function to print all neighboring vertices of a given vertex
-        for (Pair v: graph.adjList[i]) {
+        for (Edge v: graph.adjList[i]) {
             cout << "(" << i << ", " << v.first <<
                  ", " << v.second << ") ";
         }
@@ -58,6 +58,7 @@ void printStreetGraph(StreetGraph const &graph, int N)
 
 int main()
 {
+    /*
     // vector of graph edges as per the above diagram.
     // Please note that the initialization vector in the below format will
     // work fine in C++11, C++14, C++17 but will fail in C++98.
@@ -77,7 +78,7 @@ int main()
     // print adjacency list representation of a graph
     printGraph(graph, N);
 
-    return 0;
+    return 0; */
 }
 
 
